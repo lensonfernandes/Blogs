@@ -1,9 +1,8 @@
-import Image from 'next/image'
+import BlogList from "@/components/BlogList";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    <h1 className='text-4xl'>The Blog</h1>
-    </main>
-  )
+  <BlogList posts={posts} />
+  );
 }
