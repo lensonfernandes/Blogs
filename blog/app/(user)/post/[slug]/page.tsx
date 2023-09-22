@@ -1,6 +1,8 @@
 import React from "react";
 import { groq } from "next-sanity";
 import Image from "next/image";
+import { client } from "@/sanity/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
 
 type Props = {
   params: {
@@ -23,12 +25,12 @@ const Post = async ({ params: { slug } }: Props) => {
       <section className="space-y-2 border">
         <div className="relative min-h-56 flex flex-col ">
           <div className="absolute top-0 w-full h-full opacity-10">
-            <Image
+            {/* <Image
               className="object-cover object-center mx-auto"
-              src={urlForImage(post.mainImage).url()}
+              src={urlForImage(post.mainImage)}
               alt={post.author.name}
               fill
-            />
+            /> */}
           </div>
           <section className="p-5 bg-slate-400 w-full">
             <div>
