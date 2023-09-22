@@ -20,7 +20,7 @@ const BlogList = ({ posts }: Props) => {
       <div className="grid grid-cols-1 md:grid-cols-2  px-10  gap-10 gap-y-16  pb-24">
         {posts.map((post) => (
           <ClientSideRoute route={`/post/${post.slug.current}`} key={post._id}>
-            <div key={post._id} className="flex flex-col ">
+            <div  className="flex flex-col ">
               <div className="relative w-full h-80 drop-shadow-xl">
                 <Image
                   className="object-cover object-left lg:object-center"
