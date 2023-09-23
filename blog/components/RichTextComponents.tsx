@@ -6,7 +6,7 @@ export const RichTextComponents = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className="relative w-full h-[300px]">
+        <div className="relative w-full h-[300px] mt-5 mb-5">
           <Image
             src={urlFor(value).url()}
             layout="fill"
@@ -19,7 +19,7 @@ export const RichTextComponents = {
   },
   list: {
     bullet: ({ children }: any) => (
-      <ul className="list-disc pl-5">{children}</ul>
+      <ul className="list-disc pl-5 mt-5 mb-5">{children}</ul>
     ),
     number: ({ children }: any) => (
       <ol className="list-decimal pl-5">{children}</ol>
@@ -54,17 +54,4 @@ export const RichTextComponents = {
   },
 };
 
-// list:{
-//     bullet
-// },
 
-// block: {
-//     h1:()
-// },
-
-// return (
-//     <Link href={value.href} rel={rel}>
-
-//     {children}
-//     </Link>
-// )
