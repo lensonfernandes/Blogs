@@ -2,7 +2,7 @@ import React from "react";
 import { groq } from "next-sanity";
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
-import { urlForImage } from "@/sanity/lib/image";
+
 import urlFor from "@/sanity/lib/urlFor";
 import category from "@/sanity/schemas/category";
 import { PortableText } from "@portabletext/react";
