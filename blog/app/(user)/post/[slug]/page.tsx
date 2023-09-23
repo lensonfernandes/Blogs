@@ -5,6 +5,8 @@ import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import urlFor from "@/sanity/lib/urlFor";
 import category from "@/sanity/schemas/category";
+import {PortableText} from "@portabletext/react";
+import { RichTextComponents } from "@/components/RichTextComponents";
 
 type Props = {
   params: {
@@ -76,6 +78,8 @@ const Post = async ({ params: { slug } }: Props) => {
           </section>
         </div>
       </section>
+
+      <PortableText value={post?.body} components={RichTextComponents} />
     </article>
   );
 };
