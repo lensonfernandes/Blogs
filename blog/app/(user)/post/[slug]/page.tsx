@@ -43,8 +43,6 @@ const Post = async ({ params: { slug } }: Props) => {
 
   const post: Post = await client.fetch(query, { slug });
 
-  console.log(post);
-
   return (
     <article className="px-10 pb-28">
       <hr className="border-[#F4AB00] mb-10" />
@@ -71,7 +69,7 @@ const Post = async ({ params: { slug } }: Props) => {
                 </p>
               </div>
               <div className="flex items-center space-x-2">
-              <h4>Author:</h4>
+                <h4>Author:</h4>
                 <Image
                   className="rounded-full"
                   src={urlFor(post?.author?.image).url()}

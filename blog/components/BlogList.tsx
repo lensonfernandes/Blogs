@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ClientSideRoute from "./ClientSideRoute";
-// import { urlForImage } from "@/sanity/lib/image";
+
 import urlFor from "@/sanity/lib/urlFor";
 
 type Props = {
@@ -9,10 +9,6 @@ type Props = {
 };
 
 const BlogList = ({ posts }: Props) => {
-  {
-    console.log(posts);
-  }
-  console.log("POSTs length", posts.length);
   return (
     <div>
       <hr className="border-[#F4AB00] mb-10" />
