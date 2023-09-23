@@ -5,7 +5,7 @@ import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
 import urlFor from "@/sanity/lib/urlFor";
 import category from "@/sanity/schemas/category";
-import {PortableText} from "@portabletext/react";
+import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "@/components/RichTextComponents";
 
 type Props = {
@@ -16,19 +16,19 @@ type Props = {
 
 export const revalidate = 30;
 
-export async function generateStaticParams(){
+export async function generateStaticParams() {
   const query = groq`
     *[_type=='post']
     {
       slug
     }`;
 
-    const slugs: Post[] = await client.fetch(query);
-    const slugRoutes = slugs.map((slug) => slug.slug.current);
+  const slugs: Post[] = await client.fetch(query);
+  const slugRoutes = slugs.map((slug) => slug.slug.current);
 
-    return slugRoutes.map((slug) => ({
-      slug,
-    }));
+  return slugRoutes.map((slug) => ({
+    slug,
+  }));
 }
 
 const Post = async ({ params: { slug } }: Props) => {
@@ -47,15 +47,16 @@ const Post = async ({ params: { slug } }: Props) => {
 
   return (
     <article className="px-10 pb-28">
+      <hr className="border-[#F4AB00] mb-10" />
       <section className="space-y-2 border">
         <div className="relative min-h-56 flex flex-col ">
           <div className="absolute top-0 w-full h-full opacity-10">
-            {/* <Image
+            <Image
               className="object-cover object-center mx-auto"
               src={urlFor(post?.mainImage)?.url()}
               alt={post.author.name}
               fill
-            /> */}
+            />
           </div>
           <section className="p-5 bg-slate-400 w-full">
             <div className="flex flex-col md:flex-row justify-between gap-y-5">
@@ -70,13 +71,13 @@ const Post = async ({ params: { slug } }: Props) => {
                 </p>
               </div>
               <div className="flex items-center space-x-2">
-                {/* <Image
+                <Image
                   className="rounded-full"
-                  src={urlForImage(post?.author?.image).url()}
+                  src={urlFor(post?.author?.image).url()}
                   alt={post.author.name}
                   height={40}
                   width={40}
-                /> */}
+                />
               </div>
               <div className="w-64">
                 <h3 className="text-lg font-bold">{post?.author?.name}</h3>
@@ -88,7 +89,12 @@ const Post = async ({ params: { slug } }: Props) => {
 
               <div className="flex items-center justify-end mt-auto space-x-2 ">
                 {post?.categories?.map((category) => (
-                  <p key={category._id} className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold mt-4 ">{category?.title}</p>
+                  <p
+                    key={category._id}
+                    className="bg-gray-800 text-white px-3 py-1 rounded-full text-sm font-semibold mt-4 "
+                  >
+                    {category?.title}
+                  </p>
                 ))}
               </div>
             </div>
