@@ -49,12 +49,12 @@ const Post = async ({ params: { slug } }: Props) => {
       <section className="space-y-2 ">
         <div className="relative min-h-56 flex flex-col ">
           <div className="absolute top-0 w-full h-full opacity-10">
-            <Image
+         {post?.mainImage &&   <Image
               className="object-cover object-center mx-auto"
               src={urlFor(post?.mainImage)?.url()}
               alt={post.author.name}
               fill
-            />
+            />}
           </div>
           <section className="p-5 bg-[#4c5eac] w-full rounded-lg">
             <div className="flex flex-col md:flex-row justify-between gap-y-5">
@@ -70,16 +70,16 @@ const Post = async ({ params: { slug } }: Props) => {
               </div>
               <div className="flex items-center space-x-2">
                 <h4>Author:</h4>
-                <Image
+               { post?.author?.image && <Image
                   className="rounded-full"
                   src={urlFor(post?.author?.image).url()}
                   alt={post.author.name}
                   height={40}
                   width={40}
-                />
+                />}
                 <div className="w-64">
                   <h3 className="text-lg font-bold"> {post?.author?.name}</h3>
-                </div>{" "}
+                </div>
               </div>
             </div>
 
